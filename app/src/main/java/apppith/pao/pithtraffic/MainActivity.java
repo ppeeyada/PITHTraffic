@@ -1,7 +1,11 @@
 package apppith.pao.pithtraffic;
 
+import android.content.Intent;
+import android.media.MediaPlayer;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 
@@ -20,7 +24,31 @@ public class MainActivity extends AppCompatActivity {
         bindWiddget();
 
 
+        //Button Controller
+        buttonController();
+
+
+
     } // Main Class
+
+    private void buttonController() {
+        aboutMeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Sound Effect
+                MediaPlayer buttomMediaPlayer = MediaPlayer.create(getBaseContext(), R.raw.lion);
+                buttomMediaPlayer.start();
+
+                //Intent to WebView
+                Intent objIntent = new Intent(Intent.ACTION_VIEW);
+                objIntent.setData(Uri.parse("https://youtu.be/q9_Pm1jj_BU"));
+                startActivity(objIntent);
+
+                // event
+
+            }
+        });
+    }
 
     private void bindWiddget() {
 
